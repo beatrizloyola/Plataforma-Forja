@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         // Verifica se as teclas de movimento estão pressionadas
         if ((Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && isGrounded)
         {
-            vertical = 1.0f;
+            vertical = 1.2f;
         }
         else if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
         {
