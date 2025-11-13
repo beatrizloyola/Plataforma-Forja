@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 563850767}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.45, y: -1.72, z: 0}
+  m_LocalPosition: {x: -7.94, y: -3.586285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -439,6 +439,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c41aa244b2e0e48953a19c57058bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  velocidade: 5
+  forcaPulo: 10
+  chaoTeste: {fileID: 1609820045}
+  chaoTesteRaio: 0.2
+  chaoCamada:
+    serializedVersion: 2
+    m_Bits: 8
+  noChao: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609820045}
   m_Layer: 3
-  m_Name: GroundCheck
+  m_Name: TesteChao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,7 +693,7 @@ Transform:
   m_GameObject: {fileID: 1609820044}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.46000004, y: -3.14, z: 0}
+  m_LocalPosition: {x: -0.43, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
