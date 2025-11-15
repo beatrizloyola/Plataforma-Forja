@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -47,6 +48,16 @@ public class Player : MonoBehaviour
              Keyboard.current.spaceKey.wasPressedThisFrame) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Verifica se encostou na porta
+        if (other.gameObject.CompareTag("Door"))
+        {
+            Debug.Log("Tocou na porta! Carregando próxima fase...");
+            SceneManager.LoadScene("Fase2");
         }
     }
 }
