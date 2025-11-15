@@ -13,12 +13,15 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
+    private string[] levels = {"Fase1", "Fase2"};
+    private int levelsCompleted = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.gravityScale = 3f; // Ajuste conforme necessário
+            rb.gravityScale = 3f;
         }
     }
 
@@ -53,11 +56,10 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Verifica se encostou na porta
         if (other.gameObject.CompareTag("Door"))
         {
-            Debug.Log("Tocou na porta! Carregando próxima fase...");
-            SceneManager.LoadScene("Fase2");
+            levelsCompleted += 1;
+            SceneManager.LoadScene(levels[levelsCompleted]);
         }
     }
 }
