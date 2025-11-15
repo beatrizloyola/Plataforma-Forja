@@ -3,26 +3,33 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
     public LayerMask groundLayer;
     public float groundCheckDistance = 0.1f;
     public Transform groundTest;
 
+    private Rigidbody2D rb;
     private bool isGrounded;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.gravityScale = 3f; // Ajuste conforme necessário
+        }
+    }
 
     void Update()
     {
-        float horizontal = 0.0f;
-        float vertical = 0.0f;
-
-        // Faz a checagem do chão (raio para baixo)
+        // Verifica se está no chão
         isGrounded = Physics2D.Raycast(groundTest.position, Vector2.down, groundCheckDistance, groundLayer);
 
-        // Verifica se as teclas de movimento estão pressionadas
-        if ((Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && isGrounded)
-        {
-            vertical = 1.2f;
-        }
-        else if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
+        // Input de movimento horizontal
+        float horizontal = 0.0f;
+        
+        if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
         {
             horizontal = -1.0f;
         }
@@ -31,12 +38,15 @@ public class Player : MonoBehaviour
             horizontal = 1.0f;
         }
 
-        Debug.Log(horizontal);
+        // Move horizontalmente usando velocidade
+        rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
 
-        // Move o jogador
-        Vector2 position = transform.position;
-        position.x += 0.1f * horizontal;
-        position.y += 0.1f * vertical;
-        transform.position = position;
+        // Input de pulo
+        if ((Keyboard.current.upArrowKey.wasPressedThisFrame || 
+             Keyboard.current.wKey.wasPressedThisFrame || 
+             Keyboard.current.spaceKey.wasPressedThisFrame) && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
     }
 }
