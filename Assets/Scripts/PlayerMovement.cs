@@ -13,8 +13,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
-    private string[] levels = {"Fase1", "Fase2"};
-    private int levelsCompleted = 0;
+    private string[] levels = {"Fase1", "Fase2", "Fase3"};
 
     void Start()
     {
@@ -27,10 +26,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Verifica se está no chão
         isGrounded = Physics2D.Raycast(groundTest.position, Vector2.down, groundCheckDistance, groundLayer);
 
-        // Input de movimento horizontal
         float horizontal = 0.0f;
         
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
@@ -42,10 +39,8 @@ public class Player : MonoBehaviour
             horizontal = 1.0f;
         }
 
-        // Move horizontalmente usando velocidade
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
 
-        // Input de pulo
         if ((Keyboard.current.upArrowKey.wasPressedThisFrame || 
              Keyboard.current.wKey.wasPressedThisFrame || 
              Keyboard.current.spaceKey.wasPressedThisFrame) && isGrounded)
@@ -58,8 +53,17 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Door"))
         {
-            levelsCompleted += 1;
-            SceneManager.LoadScene(levels[levelsCompleted]);
+            // Pega o índice da cena atual
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            
+            // Carrega a próxima cena
+            int nextSceneIndex = currentSceneIndex + 1;
+            
+            // Verifica se não passou do limite
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(nextSceneIndex);
+            }
         }
     }
 }
