@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // 1. Verifica se está no chão
-        isGrounded = Physics2D.Raycast(groundTest.position, Vector2.down, groundCheckDistance, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundTest.position, 0.15f, groundLayer);
 
         // 2. Input de movimento horizontal
         float horizontal = 0.0f;
