@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,8 +11,6 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-
-    private string[] levels = {"Fase1", "Fase2", "Fase3"};
 
     void Start()
     {
@@ -49,21 +46,5 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Door"))
-        {
-            // Pega o índice da cena atual
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            
-            // Carrega a próxima cena
-            int nextSceneIndex = currentSceneIndex + 1;
-            
-            // Verifica se não passou do limite
-            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                SceneManager.LoadScene(nextSceneIndex);
-            }
-        }
-    }
+
 }

@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class CollectiblesManager : MonoBehaviour
 {
     public static CollectiblesManager Instance;
-    
     public TextMeshProUGUI counterText;
+    
+    public DoorController door;
     
     private int totalCollectibles;
     private int remainingCollectibles;
@@ -36,8 +38,10 @@ public class CollectiblesManager : MonoBehaviour
         
         if (remainingCollectibles <= 0)
         {
-            Debug.Log("Todos os coletáveis foram coletados!");
-            // Aqui você pode adicionar lógica de vitória
+            if (door != null)
+            {
+                door.UnlockDoor();
+            }
         }
     }
     
