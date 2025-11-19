@@ -41,10 +41,6 @@ public class DoorController : MonoBehaviour
                 {
                     SceneManager.LoadScene(nextSceneIndex);
                 }
-                else
-                {
-                    //
-                }
             }
         }
     }
