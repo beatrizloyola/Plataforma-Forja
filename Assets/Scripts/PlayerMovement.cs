@@ -9,12 +9,18 @@ public class Player : MonoBehaviour
     public float groundCheckDistance = 0.1f;
     public Transform groundTest;
 
+
     private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         if (rb != null)
         {
             rb.gravityScale = 3f;
@@ -23,10 +29,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.Raycast(groundTest.position, Vector2.down, groundCheckDistance, groundLayer);
-
+        isGrounded = Physics2D.OverlapCircle(groundTest.position, 0.15f, groundLayer);
         float horizontal = 0.0f;
-        
+
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
         {
             horizontal = -1.0f;
@@ -38,13 +43,29 @@ public class Player : MonoBehaviour
 
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
 
-        if ((Keyboard.current.upArrowKey.wasPressedThisFrame || 
-             Keyboard.current.wKey.wasPressedThisFrame || 
+        if (horizontal > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (horizontal < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        if ((Keyboard.current.upArrowKey.wasPressedThisFrame ||
+             Keyboard.current.wKey.wasPressedThisFrame ||
              Keyboard.current.spaceKey.wasPressedThisFrame) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+
+        UpdateAnimations(horizontal);
     }
 
-
+    void UpdateAnimations(float horizontalInput)
+    {
+        anim.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        anim.SetBool("IsGrounded", isGrounded);
+        anim.SetFloat("vSpeed", rb.linearVelocity.y);
+    }
 }
