@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
@@ -14,12 +13,7 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
         {
-            other.transform.position = new Vector3(-7.5f, -3.5f, other.transform.position.z);
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
