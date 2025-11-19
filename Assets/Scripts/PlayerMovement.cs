@@ -9,11 +9,11 @@ public class Player : MonoBehaviour
     public float groundCheckDistance = 0.1f;
     public Transform groundTest;
 
-
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
+    private bool isDead = false; 
 
     void Start()
     {
@@ -26,9 +26,24 @@ public class Player : MonoBehaviour
             rb.gravityScale = 3f;
         }
     }
+    
+
+    public void StartDeathAnimation()
+    {
+        isDead = true; 
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        anim.SetTrigger("isDead"); 
+    }
 
     void Update()
     {
+
+        if (isDead)
+        {
+            return; 
+        }
         isGrounded = Physics2D.OverlapCircle(groundTest.position, 0.15f, groundLayer);
         float horizontal = 0.0f;
 
