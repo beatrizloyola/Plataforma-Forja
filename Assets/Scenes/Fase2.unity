@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectiblesManager
   counterText: {fileID: 895619944}
-  door: {fileID: 0}
+  door: {fileID: 944796610}
 --- !u!4 &302095527
 Transform:
   m_ObjectHideFlags: 0
@@ -1331,8 +1331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 191, y: -79}
-  m_SizeDelta: {x: 210.8816, y: 47.3196}
+  m_AnchoredPosition: {x: -316, y: 198}
+  m_SizeDelta: {x: 141.7945, y: 17.7108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895619944
 MonoBehaviour:
@@ -1354,10 +1354,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Contador
+  m_text: 'Items: X'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 353a0dc9bd5375248b657715e7ed60a3, type: 2}
+  m_sharedMaterial: {fileID: 2057415007593856067, guid: 353a0dc9bd5375248b657715e7ed60a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1381,10 +1381,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
+  m_fontSize: 18
   m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1433,6 +1433,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895619942}
   m_CullTransparentMesh: 1
+--- !u!1 &944796609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4833311855089310787, guid: ad454041a7196704dafe866898d23416, type: 3}
+  m_PrefabInstance: {fileID: 1269613979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &944796610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5246442188056814520, guid: ad454041a7196704dafe866898d23416, type: 3}
+  m_PrefabInstance: {fileID: 1269613979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944796609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29291cda57270a243a3f3ef108324144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorController
+--- !u!95 &944796614
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944796609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c74f2d64721792c4a9311c3586e548f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &976837709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,7 +2013,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4833311855089310787, guid: ad454041a7196704dafe866898d23416, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 944796614}
   m_SourcePrefab: {fileID: 100100000, guid: ad454041a7196704dafe866898d23416, type: 3}
 --- !u!4 &1289831986 stripped
 Transform:
@@ -2926,7 +2967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759069845589763796, guid: 4e411e02a38a4ad4c9c7d8ea1812cadf, type: 3}
       propertyPath: m_Size.y
-      value: 0.53015816
+      value: 0.49795598
       objectReference: {fileID: 0}
     - target: {fileID: 2759069845589763796, guid: 4e411e02a38a4ad4c9c7d8ea1812cadf, type: 3}
       propertyPath: m_Offset.x
@@ -2934,7 +2975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759069845589763796, guid: 4e411e02a38a4ad4c9c7d8ea1812cadf, type: 3}
       propertyPath: m_Offset.y
-      value: -0.023587584
+      value: -0.0074864924
       objectReference: {fileID: 0}
     - target: {fileID: 2786511578529602031, guid: 4e411e02a38a4ad4c9c7d8ea1812cadf, type: 3}
       propertyPath: m_LocalScale.x
@@ -3141,7 +3182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
