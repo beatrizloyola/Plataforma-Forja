@@ -47,6 +47,6 @@ public class CollectiblesManager : MonoBehaviour
     
     private void UpdateUI()
     {
-        counterText.text = "Items: " + remainingCollectibles;
+        counterText.text = "Itens: " + remainingCollectibles;
     }
 }

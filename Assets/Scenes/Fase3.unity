@@ -204,8 +204,12 @@ PrefabInstance:
       value: Plataforma (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8222641473217039813, guid: 77b5c9fb0e65e3745bc9ceb9fb211d0b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.172055
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222641473217039813, guid: 77b5c9fb0e65e3745bc9ceb9fb211d0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.2054
       objectReference: {fileID: 0}
     - target: {fileID: 8222641473217039813, guid: 77b5c9fb0e65e3745bc9ceb9fb211d0b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -459,8 +463,12 @@ PrefabInstance:
       value: Plataforma
       objectReference: {fileID: 0}
     - target: {fileID: 8222641473217039813, guid: 77b5c9fb0e65e3745bc9ceb9fb211d0b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.583156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222641473217039813, guid: 77b5c9fb0e65e3745bc9ceb9fb211d0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11000013
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 8222641473217039813, guid: 77b5c9fb0e65e3745bc9ceb9fb211d0b, type: 3}
       propertyPath: m_LocalPosition.y
