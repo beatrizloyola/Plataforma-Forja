@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Plataforma Forja - New Input.slnx"
+    "dotnet.defaultSolution": "Plataforma-Forja.slnx"
 }

@@ -3,17 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
-    public GameObject onCollectEffect;
 
-    void Update()
-    {
-        
-    }
+    public float deathAnimationDuration = 0.55f;
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Player player = other.GetComponent<Player>();
+            
+            if (player != null)
+            {
+                player.StartDeathAnimation();
+                
+                Invoke("ReloadLevel", deathAnimationDuration);
+            }
         }
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
